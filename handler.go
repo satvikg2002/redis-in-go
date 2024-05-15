@@ -10,7 +10,6 @@ var Handlers = map[string]func([]Value) Value{
 	"GET":     get,
 	"HSET":    hset,
 	"HGET":    hget,
-	"HGETALL": hgetall,
 }
 
 func ping(args []Value) Value {
@@ -79,7 +78,7 @@ func hset(args []Value) Value {
 	return Value{typ: "string", str: "OK"}
 }
 
-func hgetall(args []Value) Value {
+func hget(args []Value) Value {
 	if len(args) != 2 {
 		return Value{typ: "error", str: "ERR wrong number of arguments for 'hget' command"}
 	}
